@@ -10,6 +10,7 @@ import Claim from './app/(tabs)/Claim';
 import Chat from './app/(tabs)/Chat';
 import Login from './app/(tabs)/Login';
 import Payment from './app/(tabs)/Payment';
+import Profile from './app/(tabs)/Profile';
 import Report from './app/(tabs)/Report';
 import SeeMorePage from './app/(tabs)/SeeMorePage';
 import SignUp from './app/(tabs)/SignUp';
@@ -28,6 +29,7 @@ function MyTabs() {
       <Tab.Screen name="Chat" component={Chat} />
       <Tab.Screen name="Login" component={Login} />
       <Tab.Screen name="Payment" component={Payment} />
+      <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="Report" component={Report} />
       <Tab.Screen name="SeeMorePage" component={SeeMorePage} />
       <Tab.Screen name="SignUp" component={SignUp}/>
