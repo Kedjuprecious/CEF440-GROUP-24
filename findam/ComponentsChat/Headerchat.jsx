@@ -2,12 +2,16 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 
 const Headerchat = ({ navigation }) => {
+  // Default avatar image
+  const defaultAvatarUri = 'https://www.w3schools.com/w3images/avatar2.png'; // Example default avatar URL
+  const profileImageUri = 'https://www.w3schools.com/howto/img_avatar.png'; // Example user profile picture URL
+
   return (
     <View style={styles.header}>
       <View style={styles.topRow}>
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <Image
-            source={{ uri: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.quora.com%2FWhat-do-half-Nordic-half-black-people-look-like&psig=AOvVaw0HypxI4q7mSB3EH0VzQ-Lo&ust=1718127196657000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNjDgN3I0YYDFQAAAAAdAAAAABAJ' }} // Replace with user's profile picture URL
+            source={{ uri: profileImageUri || defaultAvatarUri }} // Use profileImageUri if available, otherwise use defaultAvatarUri
             style={styles.profileImage}
           />
         </TouchableOpacity>
@@ -36,15 +40,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: 10,
     marginRight: 10,
-    // color: '#FF0000',
-    
   },
   profileImage: {
     width: 50,
     height: 50,
     borderRadius: 50,
-    borderWidth: 1, // Add border width
-    borderColor: '#000000', // Set border color to white
+    borderWidth: 1,
+    borderColor: '#000000',
   },
   headerTitle: {
     color: '#000000',
@@ -62,4 +64,4 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 13,
   },
-})
+});
