@@ -32,7 +32,7 @@ const Payments = () => {
       <Text style={styles.label}>Item Name:</Text>
       <TextInput
         style={styles.input}
-        placeholder=" Your account Number"
+        placeholder="Enter Your account Number"
         value={name}
         onChangeText={setName}
       />
