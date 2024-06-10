@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import RootLayout from './app/_layout';
 
 // Import your screens
 import Dashboard from './app/(tabs)/Dashboard';
@@ -39,11 +39,13 @@ function MyTabs() {
 export default function App() {
   return (
     <NavigationContainer>
+      <RootLayout>
       <Stack.Navigator >
         <Stack.Screen name="(tabs)" component={MyTabs} options={{ headerShown: false }} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="SeeMorePage" component={SeeMorePage} />
       </Stack.Navigator>
+      </RootLayout>
     </NavigationContainer>
   );
 }

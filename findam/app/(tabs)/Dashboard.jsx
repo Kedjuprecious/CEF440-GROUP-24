@@ -1,25 +1,42 @@
-import { View, Text ,  TouchableOpacity } from 'react-native'
+import { View, Text ,  TouchableOpacity , StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { useNavigation } from '@react-navigation/native';
+import HeaderDashboard from '../../componentDashboard/HeaderDashboard';
+import RecentImage from '../../componentDashboard/RecentImage';
+import LastImage from '../../componentDashboard/LastImage';
 
 
-
-export default function Dashboard() {
-  const navigation = useNavigation();
+const Dashboard = () => {
+  const numberOfInstances = 3;
+  const instancesArray = Array.from({ length: numberOfInstances }, (v, i) => i)
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-3xl">hello Dashboard</Text>
-      <StatusBar style="auto" />
-      {/* <Button
-        title=" See More "
-        onPress={() => navigation.navigate('SeeMorePage')}
-        color="#FFAD0F"
-        /> */}
-        <TouchableOpacity onPress={() => navigation.navigate('SeeMorePage')}>
-        <Text style={{ color: 'blue', textDecorationLine: 'none' }}>Go to See More Page</Text>
-      </TouchableOpacity>
-    </View>
-  )
+     <View style={styles.container}>
+        <HeaderDashboard />
+            <StatusBar style="auto" />
+           <ScrollView horizontal={true}>
+            {instancesArray.map((index) => (
+        <RecentImage key={index}  style={styles.cart}/> // Render the component multiple times
+      ))} 
+    </ScrollView>
+    <ScrollView vertical={true}>
+    {instancesArray.map((index) => (
+        <LastImage key={index}  style={styles.cart2}/> // Render the component multiple times
+      ))} 
+    </ScrollView >
+     </View>
+    )
 }
 
+export default Dashboard
+
+const styles = StyleSheet.create({
+   container: {
+      flex:1,
+
+   },
+
+   cart:{
+    justifyContent: 'space-around'
+   }
+})
