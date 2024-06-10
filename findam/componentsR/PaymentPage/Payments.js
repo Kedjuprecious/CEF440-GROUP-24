@@ -20,7 +20,7 @@ const Payments = () => {
 
       <Pressable
         style={styles.button}
-        onPress={() => alert("You pressed a button.")}
+        onPress={() => alert("You pressed .")}
       >
         <Text style={styles.buttonLabel}>Payment</Text>
       </Pressable>
@@ -32,7 +32,7 @@ const Payments = () => {
       <Text style={styles.label}>Item Name:</Text>
       <TextInput
         style={styles.input}
-        placeholder="Enter Your account Number"
+        placeholder=" Your account Number"
         value={name}
         onChangeText={setName}
       />
