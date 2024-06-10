@@ -23,7 +23,7 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator initialRouteName="">
-      <Tab.Screen name="Dashboard" component={Dashboard} />
+      <Tab.Screen name="Dashboard" component={Dashboard}/>
       <Tab.Screen name="Claim" component={Claim} />
       <Tab.Screen name="Chat" component={Chat} />
       <Tab.Screen name="Login" component={Login} />
@@ -39,8 +39,10 @@ function MyTabs() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="(tabs)" component={MyTabs}  options={{ headerShown: false }}/>
+      <Stack.Navigator >
+        <Stack.Screen name="(tabs)" component={MyTabs} options={{ headerShown: false }} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
+        <Stack.Screen name="SeeMorePage" component={SeeMorePage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

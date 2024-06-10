@@ -1,12 +1,25 @@
-import { View, Text } from 'react-native'
+import { View, Text ,  TouchableOpacity } from 'react-native'
 import React from 'react'
-import outfit from '../_layout';
+import { StatusBar } from 'expo-status-bar';
+import { useNavigation } from '@react-navigation/native';
+
 
 
 export default function Dashboard() {
+  const navigation = useNavigation();
   return (
-    <View>
-      <Text style={{fontSize:20, fontFamily:'outfit'}}>hello Dashboard</Text>
+    <View className="flex-1 items-center justify-center bg-white">
+      <Text className="text-3xl">hello Dashboard</Text>
+      <StatusBar style="auto" />
+      {/* <Button
+        title=" See More "
+        onPress={() => navigation.navigate('SeeMorePage')}
+        color="#FFAD0F"
+        /> */}
+        <TouchableOpacity onPress={() => navigation.navigate('SeeMorePage')}>
+        <Text style={{ color: 'blue', textDecorationLine: 'none' }}>Go to See More Page</Text>
+      </TouchableOpacity>
     </View>
   )
 }
+
