@@ -1,6 +1,5 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import outfit from '../_layout';
 
 
 export default function Dashboard() {
