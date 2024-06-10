@@ -7,7 +7,7 @@ const Headerchat = ({ navigation }) => {
       <View style={styles.topRow}>
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <Image
-            source={{ uri: 'https://via.placeholder.com/150' }} // Replace with user's profile picture URL
+            source={{ uri: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.quora.com%2FWhat-do-half-Nordic-half-black-people-look-like&psig=AOvVaw0HypxI4q7mSB3EH0VzQ-Lo&ust=1718127196657000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNjDgN3I0YYDFQAAAAAdAAAAABAJ' }} // Replace with user's profile picture URL
             style={styles.profileImage}
           />
         </TouchableOpacity>
