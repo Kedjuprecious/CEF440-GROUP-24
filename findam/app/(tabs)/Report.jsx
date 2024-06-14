@@ -47,6 +47,7 @@ const Report = () => {
   };
   return (
     <View style={styles.container}>
+    
       <Text style={styles.header}>Report Item</Text>
       <ItemDetails />
       <AddPhotos onTakePicture={handleTakePicture} />

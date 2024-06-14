@@ -6,6 +6,7 @@ import {
   DrawerItem,
 } from "@react-navigation/drawer";
 import { View, Text, StyleSheet, Image } from "react-native";
+import SettingsScreen from "../../componentsR/Settings/SettingsScreen";
 
 //Define Homescreen
 const HomeScreen = () => (
@@ -19,12 +20,12 @@ const AboutScreen = () => (
     <Text>About Screen</Text>
   </View>
 );
-
+/*
 const SettingsScreen = () => (
   <View style={styles.screenContainer}>
     <Text>Settings Screen</Text>
   </View>
-);
+);*/
 
 const HelpScreen = () => (
   <View style={styles.screenContainer}>
