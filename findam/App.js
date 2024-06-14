@@ -13,7 +13,7 @@ import Payment from './app/(tabs)/Payment';
 import Report from './app/(tabs)/Report';
 import SeeMorePage from './app/(tabs)/SeeMorePage';
 import SignUp from './app/(tabs)/SignUp';
-import Welcome from './app/(tabs)/Welcome';
+import HamburgerMenu from './app/(tabs)/HamburgerMenu';
 // Create a stack navigator
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +31,7 @@ function MyTabs() {
       <Tab.Screen name="Report" component={Report} />
       <Tab.Screen name="SeeMorePage" component={SeeMorePage} />
       <Tab.Screen name="SignUp" component={SignUp}/>
-      <Tab.Screen name="Welcome" component={Welcome} />
+      <Tab.Screen name="HamburgerMenu" component={HamburgerMenu} />
     </Tab.Navigator>
   );
 }
