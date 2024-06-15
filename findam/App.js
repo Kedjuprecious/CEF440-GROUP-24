@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+// import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 // Import your screens
 import Dashboard from './app/(tabs)/Dashboard';
@@ -13,7 +13,8 @@ import Payment from './app/(tabs)/Payment';
 import Report from './app/(tabs)/Report';
 import SeeMorePage from './app/(tabs)/SeeMorePage';
 import SignUp from './app/(tabs)/SignUp';
-import Welcome from './app/(tabs)/Welcome';
+import Profile from './app/(tabs)/Profile';
+
 // Create a stack navigator
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +32,7 @@ function MyTabs() {
       <Tab.Screen name="Report" component={Report} />
       <Tab.Screen name="SeeMorePage" component={SeeMorePage} />
       <Tab.Screen name="SignUp" component={SignUp}/>
-      <Tab.Screen name="Welcome" component={Welcome} />
+      <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
 }
