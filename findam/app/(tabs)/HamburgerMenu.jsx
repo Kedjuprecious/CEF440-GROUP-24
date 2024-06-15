@@ -1,55 +1,31 @@
-// components/hamburger/HamburgerMenu.jsx
 import React from "react";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
   DrawerItem,
 } from "@react-navigation/drawer";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import SettingsScreen from "../../componentsR/Settings/SettingsScreen";
 import HistoryPage from "../../componentsR/HistoryPage";
+import AboutScreen from "../../componentsR/AboutScreen";
+import HelpScreen from "../../componentsR/HelpScreen";
+import CommunitySupportScreen from "../../componentsR/CommunitySupportScreen";
 
-//Define Homescreen
-const HomeScreen = () => (
+// Define HomeScreen
+const HomeScreen = ({ navigation }) => (
   <View style={styles.screenContainer}>
+    <TouchableOpacity onPress={() => navigation.openDrawer()}>
+      <Ionicons name="menu" size={32} color="black" />
+    </TouchableOpacity>
     <Text>Home Screen</Text>
   </View>
 );
-// Define your screens
-const AboutScreen = () => (
-  <View style={styles.screenContainer}>
-    <Text>About Screen</Text>
-  </View>
-);
-/*
-const SettingsScreen = () => (
-  <View style={styles.screenContainer}>
-    <Text>Settings Screen</Text>
-  </View>
-);*/
 
-const HelpScreen = () => (
-  <View style={styles.screenContainer}>
-    <Text>Help Screen</Text>
-  </View>
-);
-
-const CommunitySupportScreen = () => (
-  <View style={styles.screenContainer}>
-    <Text>Community Support Screen</Text>
-  </View>
-);
-
-/*History page
-const CHaistoryPageScreen = () => (
-  <View style={styles.screenContainer}>
-    <Text>Community Support Screen</Text>
-  </View>
-);*/
-// Create a Drawer Navigator
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
-// Custom Drawer Content Component
 const CustomDrawerContent = (props) => (
   <DrawerContentScrollView {...props}>
     <View style={styles.drawerHeader}>
@@ -78,7 +54,6 @@ const CustomDrawerContent = (props) => (
       label="Community Support"
       onPress={() => props.navigation.navigate("Community Support")}
     />
-
     <DrawerItem
       label="History"
       onPress={() => props.navigation.navigate("History")}
@@ -86,23 +61,107 @@ const CustomDrawerContent = (props) => (
   </DrawerContentScrollView>
 );
 
-const HamburgerMenu = () => (
+const DrawerNavigator = () => (
   <Drawer.Navigator
     drawerContent={(props) => <CustomDrawerContent {...props} />}
   >
     <Drawer.Screen name="Home" component={HomeScreen} />
-    <Drawer.Screen name="About" component={AboutScreen} />
-    <Drawer.Screen name="Settings" component={SettingsScreen} />
-    <Drawer.Screen name="Help" component={HelpScreen} />
-    <Drawer.Screen
+  </Drawer.Navigator>
+);
+
+const HamburgerMenu = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Drawer"
+      component={DrawerNavigator}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="About"
+      component={AboutScreen}
+      options={({ navigation }) => ({
+        title: "About",
+        headerLeft: () => (
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              color="black"
+              style={{ marginLeft: 15 }}
+            />
+          </TouchableOpacity>
+        ),
+      })}
+    />
+    <Stack.Screen
+      name="Settings"
+      component={SettingsScreen}
+      options={({ navigation }) => ({
+        title: "Settings",
+        headerLeft: () => (
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              color="black"
+              style={{ marginLeft: 15 }}
+            />
+          </TouchableOpacity>
+        ),
+      })}
+    />
+    <Stack.Screen
+      name="Help"
+      component={HelpScreen}
+      options={({ navigation }) => ({
+        title: "Help",
+        headerLeft: () => (
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              color="black"
+              style={{ marginLeft: 15 }}
+            />
+          </TouchableOpacity>
+        ),
+      })}
+    />
+    <Stack.Screen
       name="Community Support"
       component={CommunitySupportScreen}
+      options={({ navigation }) => ({
+        title: "Community Support",
+        headerLeft: () => (
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              color="black"
+              style={{ marginLeft: 15 }}
+            />
+          </TouchableOpacity>
+        ),
+      })}
     />
-    <Drawer.Screen
+    <Stack.Screen
       name="History"
       component={HistoryPage}
+      options={({ navigation }) => ({
+        title: "History",
+        headerLeft: () => (
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              color="black"
+              style={{ marginLeft: 15 }}
+            />
+          </TouchableOpacity>
+        ),
+      })}
     />
-  </Drawer.Navigator>
+  </Stack.Navigator>
 );
 
 const styles = StyleSheet.create({

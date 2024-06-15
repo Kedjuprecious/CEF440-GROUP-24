@@ -27,7 +27,7 @@ const SettingsScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} />
+    
       <TouchableOpacity style={styles.section} onPress={toggleAppLanguageModal}>
         <Text style={styles.sectionText}>App Language</Text>
       </TouchableOpacity>
