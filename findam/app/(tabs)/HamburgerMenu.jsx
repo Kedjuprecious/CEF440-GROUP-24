@@ -7,6 +7,7 @@ import {
 } from "@react-navigation/drawer";
 import { View, Text, StyleSheet, Image } from "react-native";
 import SettingsScreen from "../../componentsR/Settings/SettingsScreen";
+import HistoryPage from "../../componentsR/HistoryPage";
 
 //Define Homescreen
 const HomeScreen = () => (
@@ -39,6 +40,12 @@ const CommunitySupportScreen = () => (
   </View>
 );
 
+/*History page
+const CHaistoryPageScreen = () => (
+  <View style={styles.screenContainer}>
+    <Text>Community Support Screen</Text>
+  </View>
+);*/
 // Create a Drawer Navigator
 const Drawer = createDrawerNavigator();
 
@@ -71,6 +78,11 @@ const CustomDrawerContent = (props) => (
       label="Community Support"
       onPress={() => props.navigation.navigate("Community Support")}
     />
+
+    <DrawerItem
+      label="History"
+      onPress={() => props.navigation.navigate("History")}
+    />
   </DrawerContentScrollView>
 );
 
@@ -85,6 +97,10 @@ const HamburgerMenu = () => (
     <Drawer.Screen
       name="Community Support"
       component={CommunitySupportScreen}
+    />
+    <Drawer.Screen
+      name="History"
+      component={HistoryPage}
     />
   </Drawer.Navigator>
 );
