@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Modal } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const Headerchat = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -25,21 +26,15 @@ const Headerchat = ({ navigation }) => {
             style={styles.profileImage}
           />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Chats</Text>
+        <TouchableOpacity style={styles.handoverButton} onPress={() => setModalVisible(true)}>
+          <Text style={styles.handoverButtonText}>Handover Validation</Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        style={styles.handoverButton}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={styles.handoverButtonText}>Handover Validation</Text>
-      </TouchableOpacity>
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
+        onRequestClose={() => setModalVisible(!modalVisible)}
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
@@ -48,10 +43,7 @@ const Headerchat = ({ navigation }) => {
               <View style={[styles.placeholder, styles.placeholderFFAD0F]}>
                 <Text style={styles.placeholderText}>{showUserCode ? '1154' : '****'}</Text>
                 <TouchableOpacity onPress={toggleUserCodeVisibility} style={styles.eyeButton}>
-                  <Image
-                    source={{ uri: 'https://img.icons8.com/ios-filled/50/000000/visible.png' }} // Example eye icon URL
-                    style={styles.eyeIcon}
-                  />
+                  <Ionicons name="eye" size={24} color="#000" />
                 </TouchableOpacity>
               </View>
             </View>
@@ -60,62 +52,51 @@ const Headerchat = ({ navigation }) => {
               <View style={[styles.placeholder, styles.placeholderD9D9D9]}>
                 <Text style={styles.placeholderText}>{showSenderCode ? '1234' : '****'}</Text>
                 <TouchableOpacity onPress={toggleSenderCodeVisibility} style={styles.eyeButton}>
-                  <Image
-                    source={{ uri: 'https://img.icons8.com/ios-filled/50/000000/visible.png' }} // Example eye icon URL
-                    style={styles.eyeIcon}
-                  />
+                  <Ionicons name="eye" size={24} color="#000" />
                 </TouchableOpacity>
               </View>
             </View>
           </View>
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={() => setModalVisible(!modalVisible)}
-          >
+          <TouchableOpacity style={styles.closeButton} onPress={() => setModalVisible(!modalVisible)}>
             <Text style={styles.closeButtonText}>Close</Text>
           </TouchableOpacity>
         </View>
       </Modal>
     </View>
   );
-}
+};
 
 export default Headerchat;
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#D9D9D9',
-    padding: 5,
+    backgroundColor: '#D9D9D9', // #F5F5F5
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#D9D9D9',
   },
   topRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginLeft: 10,
-    marginRight: 10,
   },
   profileImage: {
     width: 50,
     height: 50,
-    borderRadius: 50,
+    borderRadius: 25,
     borderWidth: 1,
-    borderColor: '#000000',
-  },
-  headerTitle: {
-    color: '#000000',
-    fontSize: 22,
+    borderColor: '#D9D9D9',
   },
   handoverButton: {
     backgroundColor: '#FFAD0F',
-    paddingVertical: 7,
-    paddingHorizontal: 13,
-    borderRadius: 5,
-    marginTop: 10,
-    alignSelf: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderRadius: 20,
   },
   handoverButtonText: {
     color: '#fff',
-    fontSize: 13,
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   modalContainer: {
     flex: 1,
@@ -134,6 +115,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#333',
   },
   placeholderSection: {
     alignItems: 'center',
@@ -142,7 +124,7 @@ const styles = StyleSheet.create({
   placeholder: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     width: 150, // Ensure consistent width for placeholders
     padding: 10,
     borderRadius: 5,
@@ -161,20 +143,16 @@ const styles = StyleSheet.create({
   eyeButton: {
     padding: 5,
   },
-  eyeIcon: {
-    width: 20,
-    height: 20,
-  },
   closeButton: {
-    marginTop: 10,
+    marginTop: 20,
     backgroundColor: '#FFAD0F',
-    paddingVertical: 7,
-    paddingHorizontal: 13,
-    borderRadius: 5,
-    alignSelf: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
   },
   closeButtonText: {
     color: '#fff',
-    fontSize: 13,
+    fontSize: 14,
+    fontWeight: 'bold',
   },
 });

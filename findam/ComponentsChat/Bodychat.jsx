@@ -32,6 +32,7 @@ const Bodychat = () => {
         data={messages}
         renderItem={renderItem}
         keyExtractor={item => item.id}
+        contentContainerStyle={{ paddingVertical: 12 }} // Added padding between messages
       />
     </View>
   );
@@ -41,26 +42,26 @@ export default Bodychat;
 
 const styles = StyleSheet.create({
   bodyContainer: {
-    flex: 1, // Ensure the body container takes available space
-    padding: 10, // Add padding around the entire FlatList
+    flex: 1,
+    paddingHorizontal: 16, // Adjusted horizontal padding for better spacing
+    backgroundColor: '#F0F0F0', // Added a light background color
   },
   messageContainer: {
-    marginVertical: 5,
     padding: 10,
-    borderRadius: 10,
-    maxWidth: '80%',
-    margin: 10,
+    borderRadius: 12,
+    maxWidth: '70%', // Reduced maximum width for messages
+    alignSelf: 'flex-end', // Align messages to the left by default
+    marginBottom: 8, // Added margin bottom for spacing between messages
   },
   userMessage: {
-    backgroundColor: '#FFAD0F',
-    alignSelf: 'flex-start', // Align user's messages to the left
+    backgroundColor: '#FFC107', // Changed user message background color
+    alignSelf: 'flex-start', // Align user messages to the right
   },
   otherMessage: {
-    backgroundColor: '#D9D9D9',
-    alignSelf: 'flex-end', // Align other user's messages to the right
+    backgroundColor: '#FFFFFF', // Changed other user message background color
   },
   messageText: {
-    color: '#000000', // Set all text to black
-    fontSize: 18,
+    fontSize: 16, // Adjusted font size for better readability
+    color: '#000000', // Set text color to black
   },
 });
