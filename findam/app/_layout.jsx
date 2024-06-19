@@ -5,7 +5,7 @@ import { useFonts } from 'expo-font'
 
 SplashScreen.preventAutoHideAsync();
 
-const RootLayout = ({children}) => {
+ export const RootLayout = ({children}) => {
   const [fontsLoaded, error] =  useFonts({
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
   })
@@ -26,5 +26,5 @@ const RootLayout = ({children}) => {
   );
 };
   
-  export default RootLayout
+
 

@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "FindAm",
+    "displayName": "FindAm",
     "scheme": "FindAm",
     "slug": "FindAm",
     "version": "1.0.0",

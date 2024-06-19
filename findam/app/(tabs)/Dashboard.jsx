@@ -1,42 +1,42 @@
-import { View, Text ,  TouchableOpacity , StyleSheet, ScrollView } from 'react-native'
+import { View, StyleSheet, ScrollView  } from 'react-native'
 import React from 'react'
-import { StatusBar } from 'expo-status-bar';
-import { useNavigation } from '@react-navigation/native';
-import HeaderDashboard from '../../componentDashboard/HeaderDashboard';
-import RecentImage from '../../componentDashboard/RecentImage';
-import LastImage from '../../componentDashboard/LastImage';
+import  { StatusBar }  from 'expo-status-bar';
+import  DashboardH  from '../../componentDashboard/DashboardH';
+import  RecentImage from '../../componentDashboard/RecentImage';
+import  LastImage  from '../../componentDashboard/LastImage';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
-const Dashboard = () => {
+
+const Dashboard = () =>{
   const numberOfInstances = 3;
   const instancesArray = Array.from({ length: numberOfInstances }, (v, i) => i)
   return (
-     <View style={styles.container}>
-        <HeaderDashboard />
-            <StatusBar style="auto" />
-           <ScrollView horizontal={true}>
-            {instancesArray.map((index) => (
-        <RecentImage key={index}  style={styles.cart}/> // Render the component multiple times
-      ))} 
-    </ScrollView>
-    <ScrollView vertical={true}>
+     <View style={styles.Container}>
+      <SafeAreaView/>
+       <DashboardH /> 
+        <StatusBar style="auto" />
+       <RecentImage style/> 
+    <ScrollView vertical={true} showsVerticalScrollIndicator={false}>
     {instancesArray.map((index) => (
-        <LastImage key={index}  style={styles.cart2}/> // Render the component multiple times
+        <LastImage key={index}  style={styles.Cart}/> // Render the component multiple times
       ))} 
     </ScrollView >
      </View>
-    )
+   
+  )
 }
 
-export default Dashboard
-
 const styles = StyleSheet.create({
-   container: {
+   Container: {
       flex:1,
 
    },
 
-   cart:{
-    justifyContent: 'space-around'
+   Cart:{
+    justifyContent: 'space-around',
+    marginTop: 0
    }
 })
+
+export default Dashboard;

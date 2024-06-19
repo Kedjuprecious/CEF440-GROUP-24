@@ -16,8 +16,6 @@ const LastImage = () => {
   )
 }
 
-export default LastImage
-
 const styles = StyleSheet.create({
     cart:{
         width: 'auto',
@@ -39,12 +37,23 @@ const styles = StyleSheet.create({
         backgroundColor: '#d9d9d9',
         marginRight: 120,
    },
-   container:{
-    backgroundColor:'#d9d9d9',
-    marginTop: 10,
-    marginBottom: 10
-},
+//    flatListContainer:{
+//     backgroundColor:'#d9d9d9',
+//     marginHorizontal: 16,
+//     marginVertical: 10,
+//     paddingBottom: 20,
+//     borderRadius: 6,
+//     justifyContent:'center',
+//     alignContent: 'center'
+   
+// },
+// separator: {
+//   height: 2,
+//   backgroundColor:'#d9d9d9'
+// }
     description:{
         fontSize: 16,
     }
 })
+
+export default LastImage;

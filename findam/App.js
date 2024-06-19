@@ -1,11 +1,12 @@
-import * as React from 'react';
+import  React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import RootLayout from './app/_layout';
+import { RootLayout } from './app/_layout';
+
 
 // Import your screens
-import Dashboard from './app/(tabs)/Dashboard';
+import  Dashboard  from './app/(tabs)/Dashboard';
 import Claim from './app/(tabs)/Claim';
 import Chat from './app/(tabs)/Chat';
 import Login from './app/(tabs)/Login';
@@ -22,7 +23,9 @@ const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator initialRouteName="">
+    <Tab.Navigator initialRouteName=""  screenOptions={{
+      headerShown: false,
+    }}>
       <Tab.Screen name="Dashboard" component={Dashboard}/>
       <Tab.Screen name="Claim" component={Claim} />
       <Tab.Screen name="Chat" component={Chat} />
@@ -36,7 +39,7 @@ function MyTabs() {
   );
 }
 
-export default function App() {
+export default function App()  {
   return (
     <NavigationContainer>
       <RootLayout>
@@ -49,4 +52,9 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+
+
+
+
 
