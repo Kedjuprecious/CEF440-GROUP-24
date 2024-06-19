@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image, FlatList} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import SeeMorePage from '../app/(tabs)/SeeMorePage';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import ExplorePage from '../app/(tabs)/ExplorePage';
+
 
 
 
@@ -52,7 +52,7 @@ const RecentImage = () => {
             padding: 12
           }}>
           <Text style={{ color: '#FFF',  fontWeight: '500', fontSize: 20}}>Today</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('SeeMorePage')}>
+        <TouchableOpacity onPress={() => navigation.navigate('ExplorePage')}>
           <Text style={{ color: 'blue', textDecorationLine: 'none', color: '#FFF',  fontWeight: '500', fontSize: 20 }} >See More </Text>
         </TouchableOpacity>
         </View>

@@ -12,7 +12,7 @@ import Chat from './app/(tabs)/Chat';
 import Login from './app/(tabs)/Login';
 import Payment from './app/(tabs)/Payment';
 import Report from './app/(tabs)/Report';
-import SeeMorePage from './app/(tabs)/SeeMorePage';
+import ExplorePage from './app/(tabs)/ExplorePage';
 import SignUp from './app/(tabs)/SignUp';
 import Welcome from './app/(tabs)/Welcome';
 // Create a stack navigator
@@ -32,7 +32,7 @@ function MyTabs() {
       <Tab.Screen name="Login" component={Login} />
       <Tab.Screen name="Payment" component={Payment} />
       <Tab.Screen name="Report" component={Report} />
-      <Tab.Screen name="SeeMorePage" component={SeeMorePage} />
+      <Tab.Screen name="ExplorePage" component={ExplorePage} />
       <Tab.Screen name="SignUp" component={SignUp}/>
       <Tab.Screen name="Welcome" component={Welcome} />
     </Tab.Navigator>
@@ -46,7 +46,7 @@ export default function App()  {
       <Stack.Navigator >
         <Stack.Screen name="(tabs)" component={MyTabs} options={{ headerShown: false }} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
-        <Stack.Screen name="SeeMorePage" component={SeeMorePage} />
+        <Stack.Screen name="ExplorePage" component={ExplorePage} />
       </Stack.Navigator>
       </RootLayout>
     </NavigationContainer>
