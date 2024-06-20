@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome, MaterialIcons } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
+import DescriptionPage from '../app/(tabs)/DescriptionPage';
 
 const ImageItem = ({ item }) => {
   const navigation = useNavigation();

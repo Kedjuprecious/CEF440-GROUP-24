@@ -15,6 +15,7 @@ import Report from './app/(tabs)/Report';
 import ExplorePage from './app/(tabs)/ExplorePage';
 import SignUp from './app/(tabs)/SignUp';
 import Welcome from './app/(tabs)/Welcome';
+import DescriptionPage from './app/(tabs)/DescriptionPage';
 // Create a stack navigator
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,7 @@ function MyTabs() {
       <Tab.Screen name="ExplorePage" component={ExplorePage} />
       <Tab.Screen name="SignUp" component={SignUp}/>
       <Tab.Screen name="Welcome" component={Welcome} />
+      <Tab.Screen name="DescriptionPage" component={DescriptionPage} />
     </Tab.Navigator>
   );
 }
