@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
   iconButton: {
     flex: 1,
     alignItems: 'center',
-    textDecorationColor: 'none',
   },
 });
 

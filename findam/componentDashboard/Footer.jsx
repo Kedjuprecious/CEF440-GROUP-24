@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -8,17 +8,6 @@ import ExplorePage from '../app/(tabs)/ExplorePage';
 
 const Tab = createBottomTabNavigator();
 
-const HomeScreen = () => (
-  <View style={styles.screen}>
-    <Text>Home Screen</Text>
-  </View>
-);
-
-const ExploreScreen = () => (
-  <View style={styles.screen}>
-    <Text>Explore Screen</Text>
-  </View>
-);
 
 const AddScreen = () => (
   <View style={styles.screen}>
@@ -36,7 +25,7 @@ const FooterTabs = () => {
   return (
       <Tab.Navigator
         screenOptions={{
-          tabBarShowLabel: false,
+          tabBarShowLabel: true,
           tabBarStyle: styles.tabBar,
           tabBarActiveTintColor: '#FFAD0F',
         }}
@@ -77,7 +66,7 @@ const FooterTabs = () => {
           component={MeScreen}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <FontAwesome name="user" color={color} size={size} />
+              <FontAwesome name="user-circle-o" color={color} size={size} />
             ),
           }}
         />
@@ -99,8 +88,8 @@ const styles = StyleSheet.create({
     height: 60,
   },
   addButton: {
-    width: 60,
-    height: 60,
+    width: 40,
+    height: 40,
     borderRadius: 30,
     backgroundColor: '#FFAD0F',
     justifyContent: 'center',

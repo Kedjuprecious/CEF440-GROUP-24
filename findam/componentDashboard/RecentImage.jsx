@@ -5,9 +5,6 @@ import ExplorePage from '../app/(tabs)/ExplorePage';
 
 
 
-
-
-
 const RecentImage = () => {
     const navigation = useNavigation();
 
@@ -60,9 +57,9 @@ const RecentImage = () => {
           <View style={styles.container}>
           <Image source={item.image} style={styles.image}/>
           <View style={styles. description}>
-          <Text> Status: {item.status}</Text>
-          <Text>Type: {item.Type}</Text>
-          <Text>Date: {item.Date}</Text>
+          <Text style={{ fontWeight: '600' , color:'red'}}> Status: {item.status}</Text>
+          <Text style={{ fontWeight: '600'}}>Type: {item.Type}</Text>
+          <Text style={{ fontWeight: '600'}}>Date: {item.Date}</Text>
           </View>
         </View>  
         )} 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { View, FlatList, SafeAreaView, StyleSheet } from 'react-native';
+import {  FlatList, SafeAreaView, StyleSheet } from 'react-native';
 import ImageItem from '../../componentDashboard/ImageItem';
 import Header from '../../componentDashboard/Header';
 
