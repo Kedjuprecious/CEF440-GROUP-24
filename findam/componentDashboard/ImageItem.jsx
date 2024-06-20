@@ -17,7 +17,6 @@ const ImageItem = ({ item }) => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.iconButton}>
         <FontAwesome name="handshake-o" size={24}/>
-          
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.iconButton}
@@ -57,6 +56,7 @@ const styles = StyleSheet.create({
   iconButton: {
     flex: 1,
     alignItems: 'center',
+    textDecorationColor: 'none',
   },
 });
 

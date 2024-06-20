@@ -1,10 +1,12 @@
 import { View, StyleSheet, ScrollView  } from 'react-native'
 import React from 'react'
 import  { StatusBar }  from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
 import  DashboardH  from '../../componentDashboard/DashboardH';
 import  RecentImage from '../../componentDashboard/RecentImage';
 import  LastImage  from '../../componentDashboard/LastImage';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Footer from '../../componentDashboard/Footer'
 
 
 
@@ -23,6 +25,8 @@ const Dashboard = () =>{
       ))} 
     </ScrollView >
      </View>
+
+
    
   )
 }
