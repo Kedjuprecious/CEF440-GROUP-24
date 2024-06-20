@@ -23,7 +23,7 @@ export default function App()  {
       <Stack.Navigator >
         <Stack.Screen name="FooterTabs" component={FooterTabs} options={{  headerShown: false}} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
-        <Stack.Screen name="ExplorePage" component={ExplorePage} />
+        <Stack.Screen name="ExplorePage" component={ExplorePage} options={{  headerShown: false}}/>
         <Stack.Screen name="DescriptionPage" component={DescriptionPage} options={{  headerShown: false}}/>
       </Stack.Navigator>
       </RootLayout>
