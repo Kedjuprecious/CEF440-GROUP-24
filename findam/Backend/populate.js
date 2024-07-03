@@ -2,8 +2,8 @@
 const mongoose = require('mongoose');
 const Notification = require('./Models/notificationModel');  // Adjust the path based on your project structure
 const UserModel = require('./Models/userModel');
-const mongoURI = 'mongodb+srv://Wendydjoumessi:wendy512004@atlascluster.ppt19nh.mongodb.net/Archival_retrieval_system_db?retryWrites=true&w=majority';
 
+const mongoURI = 'mongodb+srv://Wendydjoumessi:wendy512004@atlascluster.ppt19nh.mongodb.net/Archival_retrieval_system_db?retryWrites=true&w=majority';
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
