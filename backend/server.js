@@ -1,64 +1,46 @@
-// server.js
-
+const dotenv = require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const cors = require("cors");
+const errorHandler = require("./MiddleWare/errorMiddleware");
+const cookieParser = require("cookie-parser");
 
 const app = express();
-const port = process.env.PORT || 5000;
 
-// Middleware
+//middlewares
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({extended : false}))
 app.use(bodyParser.json());
 app.use(cors());
 
-// MongoDB connection
-const dbURI =
-  "mongodb+srv://mbahindah780:6NQPGHcDUzYtUs07@findambackend.lxp6rie.mongodb.net/"; // Replace with your connection string
+
+const userRoute = require("./Routes/userRoute")
+const objectRoute = require("./Routes/objectRoute")
+
+//route middleware
+app.use("/api/users", userRoute);
+app.use("/api/objects", objectRoute);
+
+//Routes 
+app.get("/", (req , res) =>{
+    res.send("Dashboard");
+});
+//error middleware
+
+app.use(errorHandler);
+
+//connecting to mongodb and start server
+
+const PORT = process.env.PORT || 5000;
+
 mongoose
-  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log(err));
+      .connect(process.env.MONGO_URI)
+      .then(() => {
+        app.listen(PORT, () => {
+            console.log(`server Running on port ${PORT}`)
+        })
+      })
+      .catch((err) => console.log(err))
 
-// Define User schema
-const userSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  number: String,
-  password: String,
-});
-
-const User = mongoose.model("User", userSchema);
-
-// Create a route to handle signup
-app.post("/signup", (req, res) => {
-  const newUser = new User({
-    name: req.body.name,
-    email: req.body.email,
-    number: req.body.number,
-    password: req.body.password,
-  });
-
-  newUser
-    .save()
-    .then((user) => res.status(201).json(user))
-    .catch((err) => res.status(400).json({ error: err.message }));
-});
-
-// Create a route to handle signin
-app.post("/signin", (req, res) => {
-  const { name, password } = req.body;
-
-  User.findOne({ name, password })
-    .then((user) => {
-      if (!user) {
-        return res.status(400).json({ error: "Invalid credentials" });
-      }
-      res.status(200).json({ message: "Sign-in successful", user });
-    })
-    .catch((err) => res.status(500).json({ error: err.message }));
-});
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
